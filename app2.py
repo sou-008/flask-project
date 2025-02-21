@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 
 # MongoDB Configuration (update with your MongoDB URI)
-app.config["MONGO_URI"] = "mongodb+srv://myuser:CWEf0LIJiDt6M0kf@clustersg.6jrur.mongodb.net/todo_db?retryWrites=true&w=majority"I
+app.config["MONGO_URI"] = "mongodb+srv://myuser:CWEf0LIJiDt6M0kf@clustersg.6jrur.mongodb.net/todo_db?retryWrites=true&w=majority"
 mongo = PyMongo(app)
 
 # Route to handle To-Do submission
