@@ -1,0 +1,8 @@
+# Ignore environment variable files
+.env
+
+# Other common files to ignore (optional)
+*.pyc
+__pycache__/
+*.pyo
+*.log

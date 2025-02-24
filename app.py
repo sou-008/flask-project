@@ -1,11 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_pymongo import PyMongo
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from the .env file
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# MongoDB Atlas URI
-app.config["MONGO_URI"] = "mongodb+srv://myuser:CWEf0LIJiDt6M0kf@clustersg.6jrur.mongodb.net/mydatabase?retryWrites=true&w=majority"
+# MongoDB Atlas URI (load from environment variable)
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 
 @app.route('/')

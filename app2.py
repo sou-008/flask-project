@@ -1,10 +1,15 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from the .env file
+load_dotenv()
 
 app = Flask(__name__)
 
-# MongoDB Configuration (update with your MongoDB URI)
-app.config["MONGO_URI"] = "mongodb+srv://myuser:CWEf0LIJiDt6M0kf@clustersg.6jrur.mongodb.net/todo_db?retryWrites=true&w=majority"
+# MongoDB Configuration (use the MONGO_URI from .env file)
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")  # Fetches the URI from environment variables
 mongo = PyMongo(app)
 
 # Route to handle To-Do submission
